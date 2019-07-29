@@ -1,5 +1,5 @@
 {
-  "name": "math-eval-ts",
+  "name": "dl-math-eval-ts",
   "version": "1.0.0-beta",
   "description": "A Typescript library providing functions to evaluate a math expression of type string without using the eval() built-in method.",
   "main": "dlMathEval.js",
