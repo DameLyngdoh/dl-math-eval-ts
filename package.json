@@ -1,0 +1,30 @@
+{
+  "name": "math-eval-ts",
+  "version": "1.0.0-beta",
+  "description": "A Typescript library providing functions to evaluate a math expression of type string without using the eval() built-in method.",
+  "main": "dlMathEval.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eval",
+    "evaluate",
+    "expression",
+    "math",
+    "typescript"
+  ],
+  "author": "Dame Lyngdoh <damelyngdoh@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dl-stack-ts": "^1.0.0"
+  },
+  "homepage": "https://github.com/DameLyngdoh/dl-math-eval-ts",
+  "repository": {
+      "type" : "git",
+      "url" : "https://github.com/DameLyngdoh/dl-math-eval-ts.git"
+  },
+  "bugs": {
+      "url": "https://github.com/DameLyngdoh/dl-math-eval-ts/issues",
+      "email": "damelyngdoh@outlook.com"
+  }
+}

@@ -1,0 +1,2142 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Math Expression Evaluator for TypeScript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Math Expression Evaluator for TypeScript</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>DLMathEval</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>dlMathEval.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Mathematical expression evaluator class.</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateBinomial">evaluateBinomial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateExpression">evaluateExpression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateNativeBinomial">evaluateNativeBinomial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateNativeExpression">evaluateNativeExpression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateReference">evaluateReference</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateReferenceTokens">evaluateReferenceTokens</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#evaluateUnaryOperations">evaluateUnaryOperations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#getOperatorPrecedence">getOperatorPrecedence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#processNumberTokens">processNumberTokens</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#processReferenceTokens">processReferenceTokens</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#stackEvaluate">stackEvaluate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#subTokenizer">subTokenizer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#tokenize">tokenize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateBinomial"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateBinomial
+                        </b>
+                        <a href="#evaluateBinomial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateBinomial(A: <a href="../classes/DMEToken.html">DMEToken</a>, B: <a href="../classes/DMEToken.html">DMEToken</a>, operator: <a href="../classes/DMEToken.html">DMEToken</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">dlMathEval.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates a binomial (of tokens) of the form A operator B, where A is the first operand and B is the second operand.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The first operand token of the expression.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>B</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The second operand token of the expression</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>operator</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The operator between the operands.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a numerical result of the expression.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateExpression"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateExpression
+                        </b>
+                        <a href="#evaluateExpression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateExpression(exp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, references: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">dlMathEval.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates a string mathematical expression using a lookup object for references within the expression.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exp</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The string expression to be evaluated.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>references</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The lookup object.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns the numerical result of the evaluation.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateNativeBinomial"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateNativeBinomial
+                        </b>
+                        <a href="#evaluateNativeBinomial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateNativeBinomial(A: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, B: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, operator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">dlMathEval.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates a binomial (of numbers) of the form A operator B, where A is the first operand and B is the second operand.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The first operand of the expression.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>B</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The second operand of the expression</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>operator</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The operator between the operands.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a numerical result of the expression.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateNativeExpression"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateNativeExpression
+                        </b>
+                        <a href="#evaluateNativeExpression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateNativeExpression(exp: <a href="../classes/DMEToken.html">DMEToken[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">dlMathEval.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates a native expression or an expression that does not have any unary operations or reference tokens.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exp</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The array of tokens of the expression.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns the evaluated value.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateReference"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateReference
+                        </b>
+                        <a href="#evaluateReference"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateReference(token: <a href="../classes/DMEReferenceToken.html">DMEReferenceToken</a>, references: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">dlMathEval.ts:212</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates a reference token and returns the numerical result.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>token</td>
+                                    <td>
+                                                <code><a href="../classes/DMEReferenceToken.html" target="_self" >DMEReferenceToken</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The ReferenceToken to be evaluated.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>references</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The lookup object.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a number which is the evaluation of the reference.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateReferenceTokens"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateReferenceTokens
+                        </b>
+                        <a href="#evaluateReferenceTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateReferenceTokens(exp: <a href="../classes/DMEToken.html">DMEToken[]</a>, references: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">dlMathEval.ts:300</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates all reference tokens within the expression and replaces them with a new operand token which is the result.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exp</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The tokenized expression, which is the array of tokens.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>references</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The references to be used (JSON object) for the lookup.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a new array of tokens with the replaced reference tokens.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evaluateUnaryOperations"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            evaluateUnaryOperations
+                        </b>
+                        <a href="#evaluateUnaryOperations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evaluateUnaryOperations(exp: <a href="../classes/DMEToken.html">DMEToken[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="325"
+                            class="link-to-prism">dlMathEval.ts:325</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluates sub-expression of the form (N) or (-N) to N, where N is a number. For (-N), the token result will be -1 * N.value</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exp</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The ordered array of tokens of the expression.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a new expression which does not contain any sub-expression of the form (N) or (-N).</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOperatorPrecedence"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            getOperatorPrecedence
+                        </b>
+                        <a href="#getOperatorPrecedence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOperatorPrecedence(operator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="362"
+                            class="link-to-prism">dlMathEval.ts:362</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets a numerical value which indicates the precedence of an operator with respect to other operators.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>operator</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The operator to get the precedence value.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns the numerical value of the precedence of the operator.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processNumberTokens"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            processNumberTokens
+                        </b>
+                        <a href="#processNumberTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processNumberTokens(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, chars: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="389"
+                            class="link-to-prism">dlMathEval.ts:389</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Parses contiguous groups of digits within the expression and generates the equivalent float number.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The starting index of the sequence of digits.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chars</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The array of characters of the expression.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ProcessingResult.html" target="_self" >ProcessingResult</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a new ProcessingResult object with the index and the resultant number token.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processReferenceTokens"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            processReferenceTokens
+                        </b>
+                        <a href="#processReferenceTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processReferenceTokens(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, chars: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="445"
+                            class="link-to-prism">dlMathEval.ts:445</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Extrapolates a ReferenceToken from an expression from the index specified.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The index which has the first match for a ReferenceToken within the expression.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chars</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The array of characters of the expression.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ProcessingResult.html" target="_self" >ProcessingResult</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a ProcessingResult object which contains the end index of the reference token as well as the token itself.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stackEvaluate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            stackEvaluate
+                        </b>
+                        <a href="#stackEvaluate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stackEvaluate(operandStack: <a href="../classes/DMEToken.html">Stack<DMEToken></a>, operator: <a href="../classes/DMEToken.html">DMEToken</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="535"
+                            class="link-to-prism">dlMathEval.ts:535</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pops two operands from the stack and performs the arithmetic operation as specified by the operator and pushes the result back to the stack.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>operandStack</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >Stack&lt;DMEToken&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The stack which contains the operand.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>operator</td>
+                                    <td>
+                                                <code><a href="../classes/DMEToken.html" target="_self" >DMEToken</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The operator token.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subTokenizer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            subTokenizer
+                        </b>
+                        <a href="#subTokenizer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>subTokenizer(startIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, endIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, chars: string[], terminatingChar: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="559"
+                            class="link-to-prism">dlMathEval.ts:559</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Tokenizes a sub-string of the expression from the start index to the end index or till the terminating character is reached, which ever is earlier.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>startIndex</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>The starting index, inclusive, of the expression.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>endIndex</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>The end index, exclusive, of the expression. </p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>chars</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>The array of characters of the expression.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>terminatingChar</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
+
+                                    <td>
+                                        <p>The terminating character to stop tokenization.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SubTokenizerResult.html" target="_self" >SubTokenizerResult</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns a SubTokenizerResult.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tokenize"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            tokenize
+                        </b>
+                        <a href="#tokenize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>tokenize(exp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="634"
+                            class="link-to-prism">dlMathEval.ts:634</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Splits (or tokenizes) the string expression into tokens.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>exp</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The expression to be tokenized</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DMEToken.html" target="_self" >DMEToken[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Returns an array of tokens.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DMEToken } from &quot;./dMEToken&quot;;
+import { ProcessingResult } from &quot;./processingResult&quot;;
+import { DMETokenType } from &quot;./dMETokenType.enum&quot;;
+import { DMEReferenceToken } from &quot;./dMEReferenceToken&quot;;
+import { ReferenceTokenType } from &quot;./reference-token-type.enum&quot;;
+import { SubTokenizerResult } from &quot;./subTokenizerResult&quot;;
+import { RegexContainer } from &quot;./regexContainer&quot;;
+import { TransitionCheck } from &quot;./transitionCheck&quot;;
+import { Stack } from &quot;dl-stack-ts&quot;;
+
+/**
+ * Mathematical expression evaluator class.
+ */
+export class DLMathEval {
+    
+    /**
+     * Evaluates a binomial (of tokens) of the form A operator B, where A is the first operand and B is the second operand.
+     * @param A The first operand token of the expression.
+     * @param B The second operand token of the expression
+     * @param operator The operator between the operands.
+     * @returns Returns a numerical result of the expression.
+     */
+    public static evaluateBinomial( A : DMEToken, B : DMEToken, operator : DMEToken) : number {
+        // A must be a number
+        if(A&#x3D;&#x3D;undefined || A&#x3D;&#x3D;null || A.type!&#x3D;DMETokenType.Operand) {
+            throw new Error(&quot;Cannot evaluate binomial. Invalid or null or undefined A operand. Token value is &quot; + A.value);
+        }
+
+        // B must be a number
+        if(B&#x3D;&#x3D;undefined || B&#x3D;&#x3D;null || B.type!&#x3D;DMETokenType.Operand) {
+            throw new Error(&quot;Cannot evaluate binomial. Invalid or null or undefined B operand. Token value is &quot; + B.value);
+        }
+
+        // operator must be a number
+        if(operator&#x3D;&#x3D;undefined || operator&#x3D;&#x3D;null || operator.type!&#x3D;DMETokenType.Operator) {
+            throw new Error(&quot;Cannot evaluate binomial. Invalid or null or undefined operator. Token value is &quot; + operator.value);
+        }
+
+        let result : number &#x3D; 0, a : number, b : number;
+        try {
+            a &#x3D; A.value; b &#x3D; B.value;
+            result &#x3D; this.evaluateNativeBinomial(a, b, operator.value);
+        }
+        catch(err) {
+            throw err;
+        }
+
+        return result;
+    }
+
+    /**
+     * Evaluates a string mathematical expression using a lookup object for references within the expression.
+     * @param exp The string expression to be evaluated.
+     * @param references The lookup object.
+     * @returns Returns the numerical result of the evaluation.
+     */
+    public static evaluateExpression( exp : string, references : any ) : number {
+        if(exp&#x3D;&#x3D;undefined || exp&#x3D;&#x3D;null) {
+            throw new Error(&#x27;Null of undefined expression.&#x27;);
+        }
+        
+        try {
+            let tokens : DMEToken[] &#x3D; DLMathEval.tokenize(exp);
+            tokens &#x3D; DLMathEval.evaluateReferenceTokens(tokens, references);
+            tokens &#x3D; DLMathEval.evaluateUnaryOperations(tokens);
+            return DLMathEval.evaluateNativeExpression(tokens);
+        }
+        catch(ex) {
+            throw ex;
+        }
+    }
+
+    /**
+     * Evaluates a binomial (of numbers) of the form A operator B, where A is the first operand and B is the second operand.
+     * @param A The first operand of the expression.
+     * @param B The second operand of the expression
+     * @param operator The operator between the operands.
+     * @returns Returns a numerical result of the expression.
+     * @throws Divides by zero exception.
+     */
+    public static evaluateNativeBinomial( A : number, B : number, operator : string ) : number {
+        
+        // Checking operator
+        if(operator&#x3D;&#x3D;undefined || operator&#x3D;&#x3D;null) {
+            throw new Error(&quot;Cannot evaluate native binomial. Operator is undefiend or null.&quot;);
+        }
+        if(!RegexContainer.Operator.test(operator)) {
+            throw new Error(&quot;Cannot evaluate native binomial. Unrecognized operator &quot;  + operator);
+        }
+
+        let result : number &#x3D; 0;
+        switch(operator) {
+            case &#x27;+&#x27;:
+                result &#x3D; A + B;
+                break;
+            case &#x27;-&#x27;:
+                    result &#x3D; A - B;
+                    break;
+            case &#x27;*&#x27;:
+                result &#x3D; A * B;
+                break;
+            case &#x27;/&#x27;:
+                // Divides by 0 exception
+                if(B&#x3D;&#x3D;0) {
+                    throw new Error(&quot;Cannot evaluate native binomial. Divides by 0 exception.&quot;);
+                }
+                result &#x3D; A / B;
+                break;
+        }
+        return result;
+    }
+
+    /**
+     * Evaluates a native expression or an expression that does not have any unary operations or reference tokens.
+     * @param exp The array of tokens of the expression.
+     * @returns Returns the evaluated value.
+     * @throws &lt;i&gt;Unrecognized native token&lt;/i&gt; when a reference token is found.
+     * @throws &lt;i&gt;Opening parenthesis not found&lt;/i&gt; when a closing parenthesis is encountered but its matching opening parenthesis is not found.
+     * @throws &lt;i&gt;Multiple operands left in stack&lt;/i&gt; when the expression is invalid and final value is not obtained.
+     */
+    public static evaluateNativeExpression( exp : DMEToken[] ) : number {
+        
+        // Validating that each token is in its native form
+        for(let t of exp) {
+            switch(t.type) {
+                case DMETokenType.Operand:
+                case DMETokenType.Operator:
+                case DMETokenType.OpenParenthesis:
+                case DMETokenType.CloseParenthesis:
+                    break;
+                default:
+                    throw new Error(&quot;Unrecognized native token.&quot;);
+            }
+        }
+
+        // Initializing stacks
+        let operandStack : Stack&lt;DMEToken&gt; &#x3D; new Stack&lt;DMEToken&gt;();
+        let operatorStack : Stack&lt;DMEToken&gt; &#x3D; new Stack&lt;DMEToken&gt;();
+
+        // Iterating through the expression
+        for(let token of exp) {
+            switch(token.type) {
+                case DMETokenType.Operand:
+                    operandStack.push(token);
+                    break;
+                case DMETokenType.OpenParenthesis:
+                    operatorStack.push(token);
+                    break;
+                case DMETokenType.CloseParenthesis:
+                    // No opening parenthesis found
+                    if(operatorStack.isEmpty()) {
+                        throw new Error(&quot;Opening parenthesis not found.&quot;);
+                    }
+                    
+                    for(let operator:DMEToken &#x3D; operatorStack.pop(); operator.type!&#x3D;DMETokenType.OpenParenthesis; operator &#x3D; operatorStack.pop()) {
+                        this.stackEvaluate(operandStack, operator);
+
+                        // No opening parenthesis found
+                        if(operatorStack.isEmpty()) {
+                            throw new Error(&quot;Opening parenthesis not found.&quot;);
+                        }
+                    }
+                    break;
+                case DMETokenType.Operator:
+                    if(operatorStack.isEmpty()) {
+                        operatorStack.push(token);
+                        break;
+                    }
+                    let topPrecedence : number &#x3D; this.getOperatorPrecedence(operatorStack.top().value);
+                    let opPrecedence : number &#x3D; this.getOperatorPrecedence(token.value);
+                    
+                    if(opPrecedence &gt;&#x3D; topPrecedence) {
+                        operatorStack.push(token);
+                    }
+                    else {
+                        for(let operator:DMEToken; opPrecedence &lt; topPrecedence ;) {
+                            operator &#x3D; operatorStack.pop();
+                            this.stackEvaluate(operandStack, operator);
+                            if(operatorStack.isEmpty()) {
+                                break;
+                            }
+                            topPrecedence &#x3D; this.getOperatorPrecedence(operatorStack.top().value);
+                        }
+                        operatorStack.push(token);
+                    }
+                    break;
+            }
+        }
+
+        // Iterating over remaining operators in operator stack
+        while(!operatorStack.isEmpty()) {
+            this.stackEvaluate(operandStack, operatorStack.pop());
+        }
+
+        // Too many operands in operand stack
+        if(operandStack.length!&#x3D;1) {
+            throw new Error(&quot;Multiple operands left in stack.&quot;);
+        }
+
+        return operandStack.top().value;
+    }
+
+    /**
+     * Evaluates a reference token and returns the numerical result.
+     * @param token The ReferenceToken to be evaluated.
+     * @param references The lookup object.
+     * @returns Returns a number which is the evaluation of the reference.
+     * @throws &lt;i&gt;Reference not found&lt;/i&gt; exception when the reference is not found in the lookup.
+     * @throws &lt;i&gt;Reference does not evaluate to a number&lt;/i&gt; exception when the reference does not produce a number.
+     * @throws &lt;i&gt;Reference not a function&lt;/i&gt; exception when the reference is not specified as a function but is not a function in the lookup object.
+     */
+    public static evaluateReference( token : DMEReferenceToken, references : any ) : number {
+        if(references&#x3D;&#x3D;null || references&#x3D;&#x3D;undefined) {
+            throw new Error(&#x27;Null or undefined lookup references.&#x27;);
+        }
+        
+        let result : number &#x3D; 0;
+        let params : number[] &#x3D; new Array&lt;number&gt;();
+        let isMathLib : boolean &#x3D; false;
+
+        // Searching for the method/constant in references
+        let currentRoot : any &#x3D; references;
+        
+        for( let i:number&#x3D;0; i&lt;token.referenceName.length; i++) {
+            currentRoot &#x3D; currentRoot[token.referenceName[i]];
+            if(currentRoot&#x3D;&#x3D;undefined) {
+
+                // Special case for Math libraray
+                if(token.referenceName.length&#x3D;&#x3D;2 &amp;&amp; token.referenceName[0]&#x3D;&#x3D;&#x27;Math&#x27;) {
+                    currentRoot &#x3D; Math;
+                    if(currentRoot[token.referenceName[1]]&#x3D;&#x3D;undefined) {
+                        throw new Error(&#x27;Reference &#x27; + token.referenceName + &#x27; not found.&#x27;);        
+                    }
+                    currentRoot &#x3D; currentRoot[token.referenceName[1]];
+                    isMathLib &#x3D; true;
+                }
+                else {
+                    throw new Error(&#x27;Reference &#x27; + token.referenceName + &#x27; not found.&#x27;);
+                }
+            }
+        }
+        
+        // If reference is a constant
+        if(token.type&#x3D;&#x3D;ReferenceTokenType.Constant) {
+            if(isMathLib) {
+                return currentRoot;
+            }
+            if(typeof currentRoot &#x3D;&#x3D; &#x27;function&#x27;) {
+                if(typeof currentRoot()!&#x3D; &quot;number&quot;) {
+                    throw new Error(&#x27;Reference:&#x27; + token.referenceName + &#x27; does not evaluate to a number.&#x27;);
+                }
+                result &#x3D; currentRoot();
+            }
+            else if(typeof currentRoot &#x3D;&#x3D; &quot;number&quot;) {
+                result &#x3D; currentRoot;
+            }
+            else {
+                throw new Error(&#x27;Reference:&#x27; + token.referenceName + &#x27; does not evaluate to a number.&#x27;);
+            }
+        }
+        else if(token.type&#x3D;&#x3D;ReferenceTokenType.Function){
+            
+            // Type checking the reference within the object
+            if(typeof currentRoot !&#x3D; &#x27;function&#x27;) {
+                throw new Error(&#x27;Reference:&#x27; + token.referenceName + &#x27; is not a function.&#x27;);
+            }
+
+            // Evaluating all reference tokens within the params
+            for(let i:number&#x3D;0; i&lt;token.params.length; i++) {
+                for(let j:number&#x3D;0; j&lt;token.params[i].length; j++) {
+                    // Replacing all reference tokens with the evaluated value
+                    if(token.params[i][j].type&#x3D;&#x3D;DMETokenType.Reference) {
+                        token.params[i][j] &#x3D; DMEToken.getInstance(DMETokenType.Operand, DLMathEval.evaluateReference(token.params[i][j].value, references));
+                    }
+                }
+                params.push(DLMathEval.evaluateNativeExpression(token.params[i]));
+            }
+
+            if(isMathLib) {
+                if(currentRoot.length !&#x3D; params.length) {
+                    throw new Error(&#x27;Incompatible number of arguments for &#x27; + token.referenceName[1] + &#x27; method in Math library.&#x27;);
+                }
+                result &#x3D; currentRoot.length &#x3D;&#x3D; 2 ? currentRoot(params[0], params[1]) : currentRoot(params[0]);
+            }
+            else {
+                // Calling the function
+                result &#x3D; currentRoot(params);
+            }
+        }
+        
+        return result;
+    }
+
+    /**
+     * Evaluates all reference tokens within the expression and replaces them with a new operand token which is the result.
+     * @param exp The tokenized expression, which is the array of tokens.
+     * @param references The references to be used (JSON object) for the lookup.
+     * @returns Returns a new array of tokens with the replaced reference tokens.
+     */
+    public static evaluateReferenceTokens( exp : DMEToken[], references : any ) : DMEToken[] {
+        let newExp : DMEToken[] &#x3D; new Array&lt;DMEToken&gt;();
+
+        for(let token of exp) {
+            if(token.type&#x3D;&#x3D;DMETokenType.Reference) {
+                try {
+                    let newToken : DMEToken &#x3D; DMEToken.getInstance( DMETokenType.Operand, DLMathEval.evaluateReference(token.value, references));
+                    newExp.push(newToken);
+                }
+                catch(ex) {
+                    throw ex;
+                }
+            }
+            else {
+                newExp.push(token);
+            }
+        }
+        return newExp;
+    }
+
+    /**
+     * Evaluates sub-expression of the form (N) or (-N) to N, where N is a number. For (-N), the token result will be -1 * N.value
+     * @param exp The ordered array of tokens of the expression.
+     * @returns Returns a new expression which does not contain any sub-expression of the form (N) or (-N).
+     */
+    public static evaluateUnaryOperations( exp : DMEToken[] ) : DMEToken[] {
+        let re : DMEToken[] &#x3D; [];
+
+        for(let i : number &#x3D; 0; i &lt; exp.length; i++) {
+            if(exp[i].type&#x3D;&#x3D;DMETokenType.OpenParenthesis &amp;&amp; i &lt;&#x3D; exp.length - 4) {
+                if(exp[i+1].type&#x3D;&#x3D;DMETokenType.Operator &amp;&amp; exp[i+1].value&#x3D;&#x3D;&#x27;-&#x27; &amp;&amp; exp[i+2].type&#x3D;&#x3D;DMETokenType.Operand &amp;&amp; exp[i+3].type&#x3D;&#x3D;DMETokenType.CloseParenthesis) {
+                    let temp : DMEToken &#x3D; new DMEToken();
+                    temp.type &#x3D; DMETokenType.Operand;
+                    temp.value &#x3D; (-1) * exp[i+2].value;
+                    re.push(temp);
+                    i +&#x3D; 3;
+                    continue;
+                }
+                else{
+                    re.push(exp[i]);
+                }
+            }
+            else if(exp[i].type&#x3D;&#x3D;DMETokenType.OpenParenthesis &amp;&amp; i &lt;&#x3D; exp.length - 3) {
+                if(exp[i+1].type&#x3D;&#x3D;DMETokenType.Operand &amp;&amp; exp[i+2].type&#x3D;&#x3D;DMETokenType.CloseParenthesis) {
+                    re.push(exp[i+1]);
+                    i +&#x3D; 3;
+                    continue;
+                }
+            }
+            else {
+                re.push(exp[i]);
+            }
+        }
+        return re;
+    }
+
+    /**
+     * Gets a numerical value which indicates the precedence of an operator with respect to other operators.
+     * @param operator The operator to get the precedence value.
+     * @returns Returns the numerical value of the precedence of the operator.
+     * @throws &lt;i&gt;Unrecognized operator&lt;/i&gt; exception when the character operator is unrecognized..
+     */
+    public static getOperatorPrecedence( operator : string ) : number {
+        switch(operator) {
+            case &#x27;+&#x27;:
+                return 1;
+            case &#x27;-&#x27;:
+                return 0;
+            case &#x27;*&#x27;:
+                return 2;
+            case &#x27;/&#x27;:
+                return 3;
+            case &#x27;(&#x27;:
+                return -1;
+            case &#x27;)&#x27;:
+                return 1000;
+            default:
+                // Unrecognized operator
+                throw new Error(&#x27;Unrecognized operator.&#x27;);
+        }
+    }
+
+    /**
+     * Parses contiguous groups of digits within the expression and generates the equivalent float number.
+     * @param index The starting index of the sequence of digits.
+     * @param chars The array of characters of the expression.
+     * @returns Returns a new ProcessingResult object with the index and the resultant number token.
+     * @throws &lt;i&gt;Decimal point without succeeding digit(s)&lt;/i&gt; exception when a decimal point does not have a digit character following it.
+     */
+    private static processNumberTokens( index : number, chars : string[]) : ProcessingResult {
+        let tempString : string &#x3D; &quot;&quot;;
+
+        // Parsing non-fractional part
+        for(; index&lt;chars.length &amp;&amp; RegexContainer.Digit.test(chars[index]); index++) {
+            tempString +&#x3D; chars[index];
+        }
+        // Checking if next character is decimal point
+        if(index&lt;chars.length-1 &amp;&amp; chars[index]&#x3D;&#x3D;&quot;.&quot;) {
+            tempString +&#x3D; &quot;.&quot;;
+            index++;
+            if(RegexContainer.Digit.test(chars[index])) {
+                for(; index&lt;chars.length &amp;&amp; RegexContainer.Digit.test(chars[index]); index++) {
+                    tempString +&#x3D; chars[index];
+                }
+            }
+            else {
+                // No digits found after decimal point 
+                throw new Error();    
+            }
+        }
+        else if(index&#x3D;&#x3D;chars.length-1 &amp;&amp; chars[index]&#x3D;&#x3D;&quot;.&quot;) {
+            // No digits found after decimal point 
+            throw new Error(&#x27;Invalid number token. Decimal point without succeeding digit(s).&#x27;);
+        }
+
+        // Parsing from string to float
+        let value : number &#x3D; 0;
+        try {
+            value &#x3D; parseFloat(tempString);
+        }
+        catch(err) {
+            throw err;
+        }
+
+        // Token for the number
+        let token : DMEToken &#x3D; new DMEToken();
+        token.type &#x3D; DMETokenType.Operand;
+        token.value &#x3D; value
+        let result : ProcessingResult &#x3D; new ProcessingResult();
+        result.index &#x3D; --index; result.token &#x3D; token;
+        return result;
+    }
+
+    /**
+     * Extrapolates a ReferenceToken from an expression from the index specified.
+     * @param index The index which has the first match for a ReferenceToken within the expression.
+     * @param chars The array of characters of the expression.
+     * @returns Returns a ProcessingResult object which contains the end index of the reference token as well as the token itself.
+     * @throws &lt;i&gt;Index out of range&lt;/i&gt; if the index is out of range of the array length.
+     * @throws &lt;i&gt;Null or undefined expression&lt;/i&gt; if the expression is null of undefined.
+     * @throws &lt;i&gt;Invalid reference name&lt;/i&gt; if the reference name does not comply with the specified convention.
+     * @throws &lt;i&gt;Open parenthesis does not have have closed match&lt;/i&gt; if an opening parenthesis does not have a closing parenthesis when end of expression is reached.
+     * @throws &lt;i&gt;Mismatching parenthesis found&lt;/i&gt; if there exists unequal number of open/close parenthesis.
+     * @throws &lt;i&gt;Encountered comma without paramter succeeding it&lt;/i&gt; if there no expression is found after a comma is encountered.
+     */
+    private static processReferenceTokens( index : number, chars : string[] ) : ProcessingResult {
+        
+        // Index valid check
+        if(index &lt; 0 || index &gt; chars.length) {
+            throw new Error(&#x27;Index out of range.&#x27;);
+        }
+
+        // Null check for expression
+        if(chars&#x3D;&#x3D;undefined || chars&#x3D;&#x3D;null) {
+            throw new Error(&#x27;Null or undefined expression string array.&#x27;);
+        }
+
+        // Obtaining reference name
+        let referenceName : string &#x3D; &quot;&quot;;
+        let result : ProcessingResult &#x3D; new ProcessingResult();
+        let params : DMEToken[][] &#x3D; new Array&lt;DMEToken[]&gt;();
+
+        for(; index &lt; chars.length &amp;&amp; RegexContainer.ReferenceNameCharacters.test(chars[index]); index++) {
+            referenceName +&#x3D; chars[index];
+        }
+
+        // Validating reference name
+        if(!RegexContainer.ReferenceName.test(referenceName)) {
+            throw new Error(&#x27;Invalid reference name.&#x27;);
+        }
+
+        // validating if next character is open parenthesis
+        // if not then it is a constant
+        if(chars[index]!&#x3D;&#x27;(&#x27;) {
+            result.index &#x3D; index;
+            result.token &#x3D; DMEToken.getInstance( DMETokenType.Reference, DMEReferenceToken.getInstance(referenceName, [], ReferenceTokenType.Constant));
+            return result;
+        }
+        
+        index++;
+        // Checking if end of string is reached
+        if(index &gt;&#x3D; chars.length) {
+            // End of expression reached without closing parenthesis
+            throw new Error(&#x27;Open parenthesis does not have have closed match at &#x27; + index);
+        }
+
+        let pairCount : number &#x3D; 1;
+        let startIndex : number &#x3D; index;
+        for(; index &lt; chars.length &amp;&amp; pairCount &gt; 0; index++) {
+            if(chars[index]&#x3D;&#x3D;&#x27;(&#x27;) {
+                pairCount++;
+            }
+            else if(chars[index]&#x3D;&#x3D;&#x27;)&#x27;){
+                pairCount--;
+            }
+        }
+        index--;
+        // Mismatching parenthesis found
+        if(index &gt;&#x3D; chars.length &amp;&amp; pairCount!&#x3D;0) {
+            throw new Error(&#x27;Mismatching parenthesis found.&#x27;);
+        }
+
+        // Obtaining the params
+        try {
+            let isComma : boolean &#x3D; false;
+            for(; startIndex &lt; index; startIndex++) {
+                isComma &#x3D; chars[startIndex]&#x3D;&#x3D;&#x27;,&#x27;;
+                if(isComma) {
+                    continue;
+                }
+                let currentParam : SubTokenizerResult &#x3D; DLMathEval.subTokenizer(startIndex, index, chars, &#x27;,&#x27;);
+                params.push(currentParam.tokens);
+                startIndex &#x3D; currentParam.index;
+
+            }
+            // Check if last character was comma
+            if(isComma) {
+                throw new Error(&#x27;Encountered comma without paramter succeeding it at &#x27; + startIndex);
+            }
+        }
+        catch(ex) {
+            throw ex;
+        }
+        
+        result.index &#x3D; index;
+        result.token &#x3D; DMEToken.getInstance( DMETokenType.Reference, DMEReferenceToken.getInstance(referenceName, params, ReferenceTokenType.Function));
+        return result;
+    }
+
+    /**
+     * Pops two operands from the stack and performs the arithmetic operation as specified by the operator and pushes the result back to the stack.
+     * @param operandStack The stack which contains the operand.
+     * @param operator The operator token.
+     * @throws &lt;i&gt;Not enough operands in operand stack&lt;/i&gt;
+     */
+    private static stackEvaluate( operandStack : Stack&lt;DMEToken&gt;, operator : DMEToken ) : void {
+        // Not enough operands
+        if(operandStack.length &lt; 2) {
+            throw new Error(&quot;Not enough operands in operand stack.&quot;);
+        }
+        
+        let B : DMEToken &#x3D; operandStack.pop();
+        let A : DMEToken &#x3D; operandStack.pop();
+        let result : DMEToken &#x3D; new DMEToken();
+        result.type &#x3D; DMETokenType.Operand;
+        result.value &#x3D; this.evaluateBinomial(A, B, operator);
+        operandStack.push(result);
+    }
+
+    /**
+     * Tokenizes a sub-string of the expression from the start index to the end index or till the terminating character is reached, which ever is earlier.
+     * @param startIndex The starting index, inclusive, of the expression.
+     * @param endIndex The end index, exclusive, of the expression. 
+     * @param chars The array of characters of the expression.
+     * @param terminatingChar The terminating character to stop tokenization.
+     * @returns Returns a SubTokenizerResult.
+     * @throws &lt;i&gt;Unrecognized character&lt;/i&gt; exception if one of the character does not form part of a valid expression.
+     * @throws &lt;i&gt;Transition check failed&lt;/i&gt; exception if a sequence of any two characters within the expression renders it invalid.
+     */
+    private static subTokenizer( startIndex : number, endIndex : number, chars : string[], terminatingChar : string &#x3D; &#x27;&#x27; ) : SubTokenizerResult {
+        let result : SubTokenizerResult &#x3D; new SubTokenizerResult();
+        let tokens : DMEToken[] &#x3D; new Array&lt;DMEToken&gt;();
+
+        try {
+            while(startIndex &lt; endIndex) {
+                
+                // Ignoring spaces
+                if(chars[startIndex]&#x3D;&#x3D;&#x27; &#x27;) {
+                    startIndex++;
+                    continue;
+                }
+                let token : DMEToken &#x3D; new DMEToken();
+    
+                // If character is a digit
+                if(RegexContainer.Digit.test(chars[startIndex])) {
+                    let processingResult &#x3D; DLMathEval.processNumberTokens(startIndex, chars);
+                    token &#x3D; processingResult.token;
+                    startIndex &#x3D; processingResult.index;            
+                }
+                else if(RegexContainer.ReferenceNameInitial.test(chars[startIndex])) {
+                    let processingResult &#x3D; DLMathEval.processReferenceTokens(startIndex, chars);
+                    token &#x3D; processingResult.token;
+                    startIndex &#x3D; processingResult.index;
+                }
+                else if(RegexContainer.Operator.test(chars[startIndex])) {
+                    token &#x3D; DMEToken.getInstance(DMETokenType.Operator, chars[startIndex]);
+                }
+                else if(RegexContainer.ClosingParenthesis.test(chars[startIndex])) {
+                    token &#x3D; DMEToken.getInstance(DMETokenType.CloseParenthesis, chars[startIndex]);
+                }
+                else if(RegexContainer.OpeningParenthesis.test(chars[startIndex])) {
+                    token &#x3D; DMEToken.getInstance(DMETokenType.OpenParenthesis, chars[startIndex]);
+                }
+                else {
+                    // Unrecognized character
+                    throw new Error(&#x27;Unrecognized character at &#x27; + startIndex);
+                }
+                
+                // Appending generated token to expression array
+                tokens.push(token);
+                startIndex++;
+                if(startIndex &lt; endIndex &amp;&amp; chars[startIndex]!&#x3D;&#x27; &#x27;) {
+                    // Checking for terminating character
+                    if(terminatingChar!&#x3D;&#x27;&#x27; &amp;&amp; chars[startIndex]&#x3D;&#x3D;terminatingChar) {
+                        break;
+                    }
+
+                    try {
+                        // Performing transition check
+                        if(!TransitionCheck(token, chars[startIndex])) {
+                            throw new Error(&#x27;Transition check failed at &#x27; + chars[startIndex] + &quot; &quot; + token.type.toString());
+                        }   
+                    }
+                    catch(ex) {
+                        throw ex;
+                    }
+                }
+            }
+        }
+        catch(ex) {
+            throw ex;
+        }
+        
+        result.index &#x3D; --startIndex;
+        result.tokens &#x3D; tokens;
+        return result;
+    }
+
+    /**
+     * Splits (or tokenizes) the string expression into tokens.
+     * @param exp The expression to be tokenized
+     * @returns Returns an array of tokens.
+     * @throws &lt;i&gt;Undefined or null expression string&lt;/i&gt;
+     */
+    public static tokenize( exp : string ) : DMEToken[] {
+        
+        // If expression string is null or undefined
+        if(exp&#x3D;&#x3D;undefined || exp&#x3D;&#x3D;null) {
+            throw new Error(&#x27;Undefined or null expression string.&#x27;);
+        }
+
+        try {
+            let parsingResult : SubTokenizerResult &#x3D; DLMathEval.subTokenizer(0, exp.length, exp.split(&#x27;&#x27;), &#x27;&#x27;);
+            return parsingResult.tokens;
+        }
+        catch(err) {
+            throw err;
+        }
+    }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DLMathEval.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

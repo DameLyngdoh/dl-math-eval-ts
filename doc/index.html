@@ -1,0 +1,239 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Math Expression Evaluator for TypeScript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">Math Expression Evaluator for TypeScript</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="typescripts-math-evaluator">TypeScript&#39;s Math Evaluator</h1>
+<p>This is a library for parsing and evaluating string arithmetic expressions.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="using-npm">Using NPM</h3>
+<p><code>sh
+npm i dl-math-eval-ts</code></p>
+<h3 id="using-github-repository">Using GitHub Repository</h3>
+<p>Clone or download the repository and add the import references accordingly in your TypeScript source code.
+<code>sh
+git clone</code></p>
+<h3 id="build">Build</h3>
+<p>To build the source and generate the corresponding JS source code:
+<code>sh
+git clone 
+cd 
+tsc</code></p>
+<p>Note: You must have TypeScript compiler installed in your system to use <code>tsc</code>. Refer to <a href="https://www.npmjs.com/package/typescript">this page</a> for more information.</p>
+<h2 id="usage">Usage</h2>
+<p>To use the library, simply use the appropriate imports in the source code.
+For example, if you wish to evaluate an expression then:
+```typescript
+import { DLMathEval } from &#39;./node-modules/dl-math-eval-ts&#39;;</p>
+<p>let exp : string = &#39;your expression&#39;;
+let ref : any = {}; // your references and methods definitions
+let result : number = DLMathEval.evaluateExpression( exp, ref );
+```
+This is an example of a scenario where you have used <code>npm</code> to install the library.
+There are several other static methods in <code>DLMathEval</code> that you may find useful so I encourage you to explore the documentation to discover these methods.</p>
+<p>However to get a better understanding of the terms and conventions followed in the methods and classes, then reading the description below will help.</p>
+<h2 id="description">Description</h2>
+<p>Here are the descriptions and elaborations of a few terms which are used in this project:</p>
+<h3 id="token">Token</h3>
+<p>A <strong>token</strong> is an independent element in an expression. It can be a number, an operator or a function call. A token in this library is represented by a class named <code>DMEToken</code>. The class has two fields: </p>
+<p>|Field|Type|Description|
+|-|-|-|
+|<code>type</code>|<code>TokenType</code>|type of token|
+|<code>value</code>|<code>any</code>|value of the token|</p>
+<p>The value that must <code>value</code> must hold depends on the <code>type</code> of the token.</p>
+<p>|TokenType|Value Type|
+|-|-|
+|CloseParenthesis|<code>&#39;)&#39;</code>|
+|OpenParenthesis|<code>&#39;(&#39;</code>|
+|Operand|number|
+|Operator|<code>&#39;-&#39;</code> or <code>&#39;+&#39;</code> or <code>&#39;*&#39;</code> or <code>&#39;/&#39;</code>|
+|Reference|<code>DMEReferenceToken</code> object|</p>
+<p>The <code>tokenize</code> method on passing a valid expression will provide an array containing the tokens in order corresponding to the expression.</p>
+<h3 id="reference-token">Reference Token</h3>
+<p>A reference token is one that represents an entity that requires a look-up in a JSON object. For example the token:
+<code>typescript
+f1.f2.f3(2,1)</code>
+is a function call and takes two arguments. The function must be declared in the second parameter of the <code>evaluateExpression</code> method. For the above example the parameter can be the following object:
+<code>typescript
+let ref : any = {
+    &quot;f1&quot;: {
+        &quot;f2&quot;: {
+            &quot;f3&quot;: function( params : number[] ) : number {
+                return params[1] * params[2];
+            }
+        }
+    }
+};</code>
+The function takes an array argument where the numbers which are to be passed as arguments are contained in the order of declaration of the function in the <code>params</code> array.
+The reference need not necessarily be a function but it can also be a number or an expression that results to a number. For example the below expression is still valid:
+```typescript
+let ref : any = {
+    &quot;f1&quot;: {
+        &quot;f2&quot;: {
+            &quot;f3&quot;: function( params : number[] ) : number {
+                return params[1] * params[2];
+            },
+            &quot;f4&quot;: function() : number {
+                return 101;
+            }
+        },
+        &quot;notAFunction&quot;: 5+1
+    }
+};</p>
+<p>let expression : string = &#39;f1.f2.f3(4,5) + f1.f2.f4 * f1.notAFunction&#39;;
+```
+Parsing <code>expression</code> will yield three <code>DMEReferenceToken</code> objects which in this scenario are valid.
+The <code>DMEReferenceToken</code> class has three fields:</p>
+<p>|Field|Type|Description|
+|-|-|-|
+|<code>referenceName</code>|<code>string[]</code>|complete name of the reference, which is delimited on <code>.</code> character|
+|<code>type</code>|<code>ReferenceTokenType</code>|type of token, can be <code>Function</code> or <code>Constant</code>|
+|<code>params</code>|<code>DMEToken[][]</code>|parameters to be passed to the function|</p>
+<p>The <code>params</code> field is an array of expression where the expression is expressed as an array of tokens. A reference token can take any valid expression as a parameter and the expression may include references also. Before evaluation of a reference, all its parameters are evaluated first and then the resulting numerical results are passed to the function (you can see this as a depth-first evaluation).</p>
+<p>A <code>Constant</code> type is one which does not have the syntax of a function call. <code>f1.notAFunction</code> or <code>f1.f2.f4</code> are both <code>Constant</code> types. Intuitively, a <code>Function</code> has the syntax of a function call, example <code>f1.f2.f3(2,3)</code>.</p>
+<h4 id="math-library">Math Library</h4>
+<p>If there are any references which are of the form <code>Math.cos(2)</code> or references which require the common <code>Math</code> library, on evaluation of the reference, if it is not found in the look-up object then the reference will be looked up in the <code>Math</code>library as well. That is of course <strong>if the look-up in the reference object fails</strong>. Even for the methods in <code>Math</code> library, the parameters are evaluated first before being passed to the method, so the expression </p>
+<p><code>Math.cos( 2 + f1.notAFunction )</code></p>
+<p>is still valid.</p>
+<h3 id="regular-expressions">Regular Expressions</h3>
+<p>The regular expressions used in this project can be found in <code>regexContainer.ts</code> file in the <code>RegexContainer</code> class.</p>
+<p>|Regex|Name|Description|
+|-|-|-|
+|<code>/^[)]$/</code>|ClosingParenthesis|Close parenthesis or <code>)</code>|
+|<code>/^[0-9]$/</code>|Digit|All digits from 0 to 9|
+|<code>/^[(]$/</code>|OpeningParenthesis|Open parenthesis or <code>(</code>|
+|<code>/^[-+*/]$/</code>|Operator|The common arithmetic operators of addition, subtraction, multiplication and division.|
+|<code>/^([a-zA-Z0-9_$]+(\.[a-zA-Z0-9_$]+)*)$/</code>|ReferenceName|A reference name is of the form <code>name.name.name.name</code>, where <code>.</code> is the separator and name can be a string of uppercase or lowercase characters, digits, <code>$</code> or <code>_</code>. A reference name must start with any one of these characters and must have at least one of these characters.|
+|<code>/^[a-zA-Z0-9$_.]$/</code>|ReferenceNameCharacters|The characters that are valid in a reference name.|
+|<code>/^[a-zA-Z$]$/</code>|ReferenceNameInitial|The valid starting characters of a reference name.|</p>
+<h3 id="transition-check">Transition Check</h3>
+<p>Since the project requires parsing a string, so intuitively there will be a requirement of a <strong>transition table</strong>. The transition, in this case, performs check on whether a character following or succeeding a token forms a valid expression. The <code>TransitionCheck</code> method, in <code>transitionCheck.ts</code>, is an implementation of this concept. The parameters of the method are:
+|Parameter|Type|Description|
+|-|-|-|
+|<code>currentToken</code>|<code>DMEToken</code>|The token that was generated in the current iteration.|
+|<code>next</code>|<code>string</code>|The character following the <code>currentToken</code> in the expression.|</p>
+<p>This method returns <code>true</code> when the transition from the token to the character is valid or <code>false</code> if invalid. The method uses regular expression which will are self-explanatory.</p>
+<h2 id="algorithm">Algorithm</h2>
+<p>The algorithm used for evaluating the expression can be found in <a href="https://algorithms.tutorialhorizon.com/evaluation-of-infix-expressions/">this page</a>. The algorithm evaluates infix expression using two stacks, one for operands and one for operators.
+The method <code>evaluateNativeExpression</code> implements the algorithm.</p>
+<p><strong>Native Expression</strong> - A native expression is one where there are only operands, operators and parenthesis in the expression. In other words, there are no reference tokens in the expression.</p>
+<h2 id="documentation">Documentation</h2>
+<p>Please refer to <code>doc/index.html</code> for the complete documentation and API reference. The documentation for this project was generated using <a href="https://compodoc.app/">Compodoc</a>.</p>
+<h2 id="demo">Demo</h2>
+<p>```typescript
+// Expression string
+let exp : string = &quot;a + (1+1.1)/2+$f.$r.w_t_($f.x(2),3) + (-2) + Math.cos(90)&quot;;</p>
+<p>// Reference object
+let ref : any = {
+    &quot;$f&quot;: {
+        &quot;$r&quot;: {
+            &quot;w_t_&quot;: function( params : number[] ) : number {
+                return params[0] + params[1];
+            }
+        },
+        &quot;x&quot;: function( params : number[] ) : number {
+            return params[0] * params[0];
+        },
+        &quot;a&quot;: 2
+    },
+    &quot;a&quot;: 1
+};</p>
+<p>// Getting the array of tokens
+let tokens = DLMathEval.tokenize(exp);</p>
+<p>// Evaluating the expression
+let result = DLMathEval.evaluateExpression(exp, ref);
+```</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
