@@ -10,14 +10,14 @@ npm i dl-math-eval-ts
 ### Using GitHub Repository
 Clone or download the repository and add the import references accordingly in your TypeScript source code.
 ```sh
-git clone
+git clone https://github.com/DameLyngdoh/dl-math-eval-ts.git
 ```
 
 ### Build
 To build the source and generate the corresponding JS source code:
 ```sh
-git clone 
-cd 
+git clone https://github.com/DameLyngdoh/dl-math-eval-ts.git
+cd dl-math-eval-ts.git
 tsc
 ```
 
